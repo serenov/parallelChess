@@ -11,21 +11,21 @@ static inline void initPawnAttacks()
 
     for (Square sq = A1; sq <= H8; sq = (Square)(sq + 1))
     {
-        __pawnAttack__[white][sq] = 0;
-        __pawnAttack__[black][sq] = 0;
+        __pawnAttack__[WHITE][sq] = 0;
+        __pawnAttack__[BLACK][sq] = 0;
 
         Bitboard p = A1Square << sq;
 
         if (~fileA & p)
         {
-            __pawnAttack__[white][sq] |= p << 7;
-            __pawnAttack__[black][sq] |= p >> 9;
+            __pawnAttack__[WHITE][sq] |= p << 7;
+            __pawnAttack__[BLACK][sq] |= p >> 9;
         }
 
         if (~fileH & p)
         {
-            __pawnAttack__[white][sq] |= p << 9;
-            __pawnAttack__[black][sq] |= p >> 7;
+            __pawnAttack__[WHITE][sq] |= p << 9;
+            __pawnAttack__[BLACK][sq] |= p >> 7;
         }
     }
 }

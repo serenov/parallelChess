@@ -48,7 +48,7 @@ static inline Bitboard allAttackedSquares(Boards *boards)
 
     Bitboard attackedSquares = 0;
 
-    Bitboard occupiedBoard = (boards->state.colorToPlay == white) ? boards->bitboards.blackPieces : boards->bitboards.whitePieces;
+    Bitboard occupiedBoard = (boards->state.colorToPlay == WHITE) ? boards->bitboards.blackPieces : boards->bitboards.whitePieces;
 
     while (occupiedBoard)
     {
@@ -63,7 +63,7 @@ static inline Bitboard castleRightMove(Boards *boards, Color color, Bitboard uns
 {
 
     if (boards->state.canCastleRight[color])
-        return (color == white) ? 3UL << 5 : 3UL << 61;
+        return (color == WHITE) ? 3UL << 5 : 3UL << 61;
 
     return 0;
 }
@@ -72,7 +72,7 @@ static inline Bitboard castleLeftMove(Boards *boards, Color color, Bitboard unsa
 {
 
     if (boards->state.canCastleLeft[color])
-        return (color == white) ? 3UL << 3 : 3UL << 59;
+        return (color == WHITE) ? 3UL << 3 : 3UL << 59;
 
     return 0;
 }
