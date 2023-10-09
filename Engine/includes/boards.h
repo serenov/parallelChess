@@ -25,7 +25,7 @@ typedef struct {
 
     Color colorToPlay;
 
-    Moves movesHistory;
+    MoveInfo movesHistory[1000];
 
 } BoardState;
 

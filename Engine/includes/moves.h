@@ -6,53 +6,77 @@
 
 #define MAX_MOVE_LENGTH 1056
 
-typedef enum {
-
+typedef enum 
+{
+    BLAND,
     CAPTURE,
-    ENPASSANT,
-    CASTLING,
-    PROMOTION,
-    Illegal
-
+    ENPASSANT_W,
+    ENPASSANT_B,
+    CASTLE_W_LEFT,
+    CASTLE_W_RIGHT,
+    CASTLE_B_LEFT,
+    CASTLE_B_RIGHT,
+    PROMOTION_W_P,
+    PROMOTION_W_N,
+    PROMOTION_W_B,
+    PROMOTION_W_R,
+    PROMOTION_W_Q,
+    PROMOTION_B_P,
+    PROMOTION_B_N,
+    PROMOTION_B_B,
+    PROMOTION_B_R,
+    PROMOTION_B_Q
 } Movetype;
 
-typedef struct {
+typedef struct 
+{
 
-    Piece attackPiece;
+    Square from;
+    Square to;
 
+} Move;
+
+
+typedef struct 
+{
+    
     Square from;
     Square to;
 
     Movetype type;
 
-    void* extraInformation;
-
-} Move;
+} MoveInfo;
 
 typedef Move* MovesList;
 
-typedef struct {
+typedef struct 
+{
 
     MovesList list[MAX_MOVE_LENGTH];
     int length;
 
 } Moves;
 
-typedef struct {
+typedef struct 
+{
 
     Square from;
     Square to;
 
 } CastleMoveInformation;
 
-typedef struct {
+typedef struct 
+{
 
     Square capturedAt;
 
 } EnpassantInformation;
 
-typedef struct {
+typedef struct 
+{
+
     Piece capturedPiece;
+
 } capturePieceInformation;
 
 

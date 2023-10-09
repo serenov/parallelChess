@@ -72,8 +72,8 @@ inline void initBitboards(Bitboards* bitboard) {
 void playMoveOnBitboards(Bitboards* bitboards, Move* move);
 void undoMoveOnBitboards(Bitboards* bitboards, Move* move);
 
-static void setPieceOnBitboards(Bitboards* bitboards, Square square, Piece piece);
-static void clearPieceOnBitboards(Bitboards* bitboards, Square square, Piece piece);
+inline void setPieceOnBitboards(Bitboards* bitboards, Square square, Piece piece);
+inline void clearPieceOnBitboards(Bitboards* bitboards, Square square, Piece piece);
 
 
 
