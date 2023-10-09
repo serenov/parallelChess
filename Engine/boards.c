@@ -66,13 +66,13 @@ inline static void putPieceOnSquare(PlainBoard board, Piece piece, Square square
 
 inline static void removePieceOnSquare(PlainBoard board, Square square)
 {
-    board[square] = nullPiece;
+    board[square] = NULL_PIECE;
 }
 
 inline static void initPlainBoard(PlainBoard pb)
 {
     for (Square s = A1; s <= H8; s++)
     {
-        pb[s] = nullPiece;
+        pb[s] = NULL_PIECE;
     }
 }

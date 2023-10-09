@@ -48,8 +48,8 @@
 
 void playMoveOnBitboards(Bitboards *bitboards, Move *move)
 {
-    setPieceOnBitboards(bitboards, move->to, move->attackPiece);
-    clearPieceOnBitboards(bitboards, move->from, move->attackPiece);
+    setPieceOnBitboards(bitboards, move, WHITE_BISHOP);
+    clearPieceOnBitboards(bitboards, move, WHITE_BISHOP);
 }
 
 void undoMoveOnBitboards(Bitboards *bitboards, Move *move)
@@ -62,25 +62,25 @@ inline Bitboard *getBitboardForPiece(Bitboards *bitboards, Piece piece)
 {
     switch (piece)
     {
-    case whiteKing:
+    case WHITE_KING:
         return &(bitboards->whiteKing);
-    case whiteQueen:
+    case WHITE_QUEEN:
         return &(bitboards->whiteQueens);
-    case whiteRook:
+    case WHITE_ROOK:
         return &(bitboards->whiteRooks);
-    case whiteBishop:
+    case WHITE_BISHOP:
         return &(bitboards->whiteBishops);
-    case whitePawn:
+    case WHITE_PAWN:
         return &(bitboards->whitePawns);
-    case blackKing:
+    case BLACK_KING:
         return &(bitboards->blackKing);
-    case blackQueen:
+    case BLACK_QUEEN:
         return &(bitboards->blackQueens);
-    case blackRook:
+    case BLACK_ROOK:
         return &(bitboards->blackRooks);
-    case blackBishop:
+    case BLACK_BISHOP:
         return &(bitboards->blackBishops);
-    case blackPawn:
+    case BLACK_PAWN:
         return &(bitboards->blackPawns);
     }
 

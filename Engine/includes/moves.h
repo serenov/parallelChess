@@ -4,11 +4,10 @@
 #include "squares.h"
 #include "pieces.h"
 
-#define MAX_MOVE_LENGTH 1056
-
 typedef enum 
 {
     BLAND,
+    PAWN_MOVE,
     CAPTURE,
     ENPASSANT_W,
     ENPASSANT_B,
@@ -46,40 +45,6 @@ typedef struct
     Movetype type;
 
 } MoveInfo;
-
-typedef Move* MovesList;
-
-typedef struct 
-{
-
-    MovesList list[MAX_MOVE_LENGTH];
-    int length;
-
-} Moves;
-
-typedef struct 
-{
-
-    Square from;
-    Square to;
-
-} CastleMoveInformation;
-
-typedef struct 
-{
-
-    Square capturedAt;
-
-} EnpassantInformation;
-
-typedef struct 
-{
-
-    Piece capturedPiece;
-
-} capturePieceInformation;
-
-
 
 // Move dispatchers
 
