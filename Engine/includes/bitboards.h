@@ -12,11 +12,7 @@ typedef char byte;
 
 
 typedef uint64_t Bitboard;
-// typedef uint64_t PositionMask;
 
-// a constant that represent A1 square on bitboard
-const Bitboard A1Square = 1;
-const Bitboard H8Square = 1 << 63;
 
 typedef struct {
 
@@ -72,21 +68,10 @@ inline void initBitboards(Bitboards* bitboard) {
 void playMoveOnBitboards(Bitboards* bitboards, Move* move);
 void undoMoveOnBitboards(Bitboards* bitboards, Move* move);
 
-inline void setPieceOnBitboards(Bitboards* bitboards, Square square, Piece piece);
-inline void clearPieceOnBitboards(Bitboards* bitboards, Square square, Piece piece);
-
-
 
 // inline utility functions 
 
-inline static void setBitOnBitboard(Bitboard *b, Square s);
-inline static void clearBitOnBitboard(Bitboard *b, Square s);
+inline void setBitOnBitboard(Bitboard *b, Square s);
+inline void clearBitOnBitboard(Bitboard *b, Square s);
 
-inline Square popFirstBit(Bitboard* b);
 inline Bitboard* getBitboardForPiece(Bitboards* bitboards, Piece piece);
-
-
-// inline static int getFileState(Bitboard occupiedBoard);
-// inline static int getRankState(Bitboard occupiedRotated90L);
-// inline static int getRightDiagonalState(Bitboard occupiedRotated45R);
-// inline static int getLeftDiagonalState(Bitboard occupiedRotated45L);

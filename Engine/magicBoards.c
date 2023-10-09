@@ -7,14 +7,10 @@
 
 static inline void initPawnAttacks()
 {
-    const Bitboard fileA = __files__[0], fileH = __files__[7];
-
-    for (Square sq = A1; sq <= H8; sq = (Square)(sq + 1))
-    {
-        __pawnAttack__[WHITE][sq] = 0;
+    const Bitboard fileA = __files__[0], fileH = __files__[7]; for (Square sq = A1; sq <= H8; sq = (Square)(sq + 1)) { __pawnAttack__[WHITE][sq] = 0;
         __pawnAttack__[BLACK][sq] = 0;
 
-        Bitboard p = A1Square << sq;
+        Bitboard p = 1UL << sq;
 
         if (~fileA & p)
         {
@@ -37,7 +33,7 @@ static inline void initKnightAttack()
 
     for (Square sq = A1; sq <= H8; sq = (Square)(sq + 1))
     {
-        Bitboard p = A1Square << sq;
+        Bitboard p = 1UL << sq;
 
         __knightAttack__[sq] = 0;
 
@@ -76,7 +72,7 @@ static inline void initKingAttack()
     {
         __kingAttack__[sq] = 0;
 
-        Bitboard p = A1Square << sq;
+        Bitboard p = 1UL << sq;
 
         __kingAttack__[sq] |= p << 8;
         __kingAttack__[sq] |= p >> 8;
@@ -104,7 +100,7 @@ static inline void initAttackRank()
     {
         int x = sq % 8, y = sq / 8;
 
-        Bitboard p = A1Square << sq;
+        Bitboard p = 1UL << sq;
 
         Statemask start = 1 << x;
 
@@ -133,7 +129,7 @@ static inline void initAttackFile()
 {
     for (Square sq = A1; sq <= H8; sq = (Square)(sq + 1))
     {
-        Bitboard p = A1Square << sq;
+        Bitboard p = 1UL << sq;
 
         int x = sq % 8, y = sq / 8;
 
@@ -164,7 +160,7 @@ static inline void initAttackRightDiagonal()
 {
     for (Square sq = A1; sq <= H8; sq = (Square)(sq + 1))
     {
-        Bitboard pos = A1Square << sq;
+        Bitboard pos = 1UL << sq;
 
         int limit = 1 << (__occupied45R_diagonalLength__[sq]);
 
@@ -195,7 +191,7 @@ static inline void initAttackLeftDiagonal()
 {
     for (Square sq = A1; sq <= H8; sq = (Square)(sq + 1))
     {
-        Bitboard pos = A1Square << sq;
+        Bitboard pos = 1UL << sq;
 
         int limit = 1 << __occupied45L_diagonalLength__[sq];
 
@@ -231,22 +227,6 @@ static inline void initRanksAndFiles()
     }
 }
 
-inline int getRankState(Boards *boards, Square square)
-{
-    return ((boards->bitboards.occupiedBoard) << __occupied_skip__[square]) & 255;
-}
-inline int getFileState(Boards *boards, Square square)
-{
-    return ((boards->bitboards.occupiedBoard) << __occupied90L_skip__[square]) & 255;
-}
-inline int getRDiagonal(Boards *boards, Square square)
-{
-    return ((boards->bitboards.occupiedBoard) << __occupied45R_skip__[square]) & ((1 << __occupied45R_diagonalLength__[square]) - 1);
-}
-inline int getLDiagonal(Boards *boards, Square square)
-{
-    return ((boards->bitboards.occupiedBoard) << __occupied45L_skip__[square]) & ((1 << __occupied45L_diagonalLength__[square]) - 1);
-}
 
 void initMagicBoards()
 {

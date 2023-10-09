@@ -134,7 +134,6 @@ Bitboard __files__[8];
 // Initializationss
 
 
-static inline void initPawnAttack();
 static inline void initKnightAttack();
 static inline void initKingAttack();
 static inline void initAttackRank();

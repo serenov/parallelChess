@@ -47,14 +47,57 @@ void initBoards(Boards *boards, char *fenString)
 
 void playMoveOnBoards(Boards *boards, Move *move)
 {
-    putPieceOnSquare(boards->board, (Piece)boards->board[move->from], move->to);
+    Piece movingPiece = (Piece)boards->board[move->from];
+
+    putPieceOnSquare(boards->board, movingPiece, move->to);
     removePieceOnSquare(boards->board, move->from);
 
-    playMoveOnBitboards(&(boards->bitboards), move);
+    playMoveOnBitboards(&(boards->bitboards), move, movingPiece);
 }
 
 void undoMoveOnBoards(Boards *boards, Move *move)
 {
+}
+
+void generateLegalMoves(Boards *boards, Square from)
+{
+
+
+
+}
+
+
+void generatePseudoLegalMoves(Boards *boards, Square from) 
+{
+    Piece selectedPiece = boards -> board[from];
+
+    switch (selectedPiece)
+    {
+    case WHITE_QUEEN:
+    case BLACK_QUEEN:
+        return 
+            generateBishopMoves(boards, from) |
+            generateRookMoves(boards, from);
+    case WHITE_PAWN:
+    case BLACK_PAWN:
+        return;
+    case WHITE_ROOK:
+    case BLACK_ROOK:
+        return generateRookMoves(boards, from);
+    case WHITE_BISHOP:
+    case BLACK_BISHOP:
+        return generateBishopMoves(boards, from);
+    case WHITE_KNIGHT:
+    case BLACK_KNIGHT:
+        return __knightAttack__[from];
+    case WHITE_KING:
+    case BLACK_KING:
+        return __kingAttack__[from];
+    
+    default:
+        return 0;
+    }
+
 }
 
 // Inline functions

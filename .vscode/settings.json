@@ -5,6 +5,8 @@
         "stdlib.h": "c",
         "bitboards.h": "c",
         "pieces.h": "c",
-        "moves.h": "c"
+        "moves.h": "c",
+        "magicboards.h": "c",
+        "utils.h": "c"
     }
 }
