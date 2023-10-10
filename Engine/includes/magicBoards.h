@@ -1,6 +1,6 @@
 #pragma once
 
-#include "bitboards.h"
+#include "./bitboards.h"
 
 // Magic Boards for rotated 45 degrees board
 const unsigned char __occupied45R_shift__[64] = {

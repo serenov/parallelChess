@@ -1,8 +1,8 @@
-#include "./includes/boards.h"
-#include "./includes/utils.h"
-#include "./includes/bitboards.h"
-#include "./includes/magicBoards.h"
-#include "./includes/utils.h"
+#include "../includes/boards.h"
+#include "../includes/utils.h"
+#include "../includes/bitboards.h"
+#include "../includes/magicBoards.h"
+#include "../includes/utils.h"
 
 #include <stdbool.h>
 #include <stdlib.h>

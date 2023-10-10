@@ -3,9 +3,9 @@
 #include <stdint.h>
 #include <stdbool.h>
 
-#include "squares.h"
-#include "pieces.h"
-#include "moves.h"
+#include "./squares.h"
+#include "./pieces.h"
+#include "./moves.h"
 
 typedef char byte;
 

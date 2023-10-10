@@ -1,9 +1,9 @@
-#include "includes/moves.h"
-#include "includes/boards.h"
-#include "includes/bitboards.h"
-#include "includes/squares.h"
-#include "includes/pieces.h"
-#include "includes/magicBoards.h"
+#include "../includes/moves.h"
+#include "../includes/boards.h"
+#include "../includes/bitboards.h"
+#include "../includes/squares.h"
+#include "../includes/pieces.h"
+#include "../includes/magicBoards.h"
 
 #include <stdbool.h>
 #include <stdlib.h>

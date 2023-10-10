@@ -1,9 +1,8 @@
-#include "includes/magicBoards.h"
+#include "../includes/magicBoards.h"
+#include "../includes/boards.h"
+#include "../includes/bitboards.h"
 
-#include "includes/boards.h"
-#include "includes/bitboards.h"
-
-#include "includes/pieces.h"
+#include "../includes/pieces.h"
 
 static inline void initPawnAttacks()
 {

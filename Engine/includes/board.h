@@ -1,5 +1,5 @@
-#include "pieces.h"
-#include "squares.h"
+#include "./pieces.h"
+#include "./squares.h"
 
 typedef Piece PlainBoard[64];
 

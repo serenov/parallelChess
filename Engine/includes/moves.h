@@ -1,8 +1,8 @@
 #pragma once
 
-#include "boards.h"
-#include "squares.h"
-#include "pieces.h"
+#include "./boards.h"
+#include "./squares.h"
+#include "./pieces.h"
 
 typedef enum 
 {

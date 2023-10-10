@@ -9,7 +9,8 @@
         "magicboards.h": "c",
         "utils.h": "c",
         "MAGICBOARDS.H": "cpp",
-        "stdint.h": "c"
+        "stdint.h": "c",
+        "squares.h": "c"
     },
     "makefile.makeDirectory": "./Engine"
 }

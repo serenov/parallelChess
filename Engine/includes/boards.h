@@ -2,12 +2,12 @@
 
 #include <stdbool.h>
 
-#include "bitboards.h"
-#include "pieces.h"
-#include "moves.h"
-#include "squares.h"
-#include "board.h"
-#include "magicBoards.h"
+#include "./bitboards.h"
+#include "./pieces.h"
+#include "./moves.h"
+#include "./squares.h"
+#include "./board.h"
+#include "./magicBoards.h"
 #define DEFAULT_FEN "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1"
 
 #define MAX_NUMBER_OF_MOVES 1000
@@ -55,7 +55,7 @@ typedef struct
 } Boards;
 
 
-void initBoards(Boards* boards, char* fenString);
+void initBoards(Boards *boards, char *fenString);
 void initPlainBoard(PlainBoard pb);
 
 void playMoveOnBoards(Boards* boards, Move* move);

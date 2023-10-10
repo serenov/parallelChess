@@ -5,7 +5,10 @@ CC = gcc
 CFLAGS = -Wall -Werror
 
 # Define source files and object files
-SOURCES = boards.c magicBoards.c bitboards.c moves.c chess.c# Add all your source files here
+
+SRC_DIR = src
+
+SOURCES = $(wildcard $(SRC_DIR)/*.c)
 OBJECTS = $(SOURCES:.c=.o)
 
 # Define the output executable

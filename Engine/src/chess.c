@@ -1,6 +1,7 @@
 #include <stdbool.h>
 #include <stdio.h>
-#include "./includes/boards.h"
+#include "../includes/boards.h"
+#include "../includes/board.h"
 
 
 void displayBoard(PlainBoard board, bool rotated) {
@@ -17,8 +18,8 @@ void displayBoard(PlainBoard board, bool rotated) {
 
 int main ()
 {
-    Boards board;
-    initBoards(&board, NULL);
-    displayBoard(board.board, false);
+    Boards boards;
+    initBoards(&boards, NULL);
+    displayBoard(boards.board, false);
     return 0;
 }
