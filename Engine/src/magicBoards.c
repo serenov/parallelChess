@@ -102,9 +102,9 @@ static inline void initAttackRank()
 
         Bitboard p = 1UL << sq;
 
-        Statemask start = 1 << x;
+        unsigned char start = 1 << x;
 
-        for (Statemask state = 1; state < 256; state++)
+        for (unsigned char state = 1; state < 256; state++)
         {
             __attackRank__[sq][state] = 0;
 
@@ -133,11 +133,11 @@ static inline void initAttackFile()
 
         int x = sq % 8, y = sq / 8;
 
-        for (Statemask state = 1; state < 256; state++)
+        for (unsigned char state = 1; state < 256; state++)
         {
             __attackFile__[sq][state] = 0;
 
-            Statemask start = 1 << y;
+            unsigned char start = 1 << y;
 
             for (int i = 1; i <= y; i++)
             {
@@ -164,9 +164,9 @@ static inline void initAttackRightDiagonal()
 
         int limit = 1 << (__occupied45R_diagonalLength__[sq]);
 
-        Statemask start = 1 << (__occupied45L_shift__[sq] - __occupied45R_skip__[sq]);
+        unsigned char start = 1 << (__occupied45L_shift__[sq] - __occupied45R_skip__[sq]);
 
-        for (Statemask state = 1; state < limit; state++)
+        for (unsigned char state = 1; state < limit; state++)
         {
             __attackRightDiagonal__[sq][state] = 0;
 
@@ -195,9 +195,9 @@ static inline void initAttackLeftDiagonal()
 
         int limit = 1 << __occupied45L_diagonalLength__[sq];
 
-        Statemask start = 1 << (__occupied45L_shift__[sq] - __occupied45L_skip__[sq]);
+        unsigned char start = 1 << (__occupied45L_shift__[sq] - __occupied45L_skip__[sq]);
 
-        for (Statemask state = 1; state < limit; state++)
+        for (unsigned char state = 1; state < limit; state++)
         {
             __attackLeftDiagonal__[sq][state] = 0;
 

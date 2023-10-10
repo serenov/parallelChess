@@ -65,13 +65,22 @@ inline void initBitboards(Bitboards* bitboard) {
     bitboard -> occupiedRotated45RBoard = 0;
 }
 
-void playMoveOnBitboards(Bitboards* bitboards, Move* move);
-void undoMoveOnBitboards(Bitboards* bitboards, Move* move);
+void playMoveOnBitboards(Bitboards* bitboards, Move* move, Piece movingPiece);
+// void undoMoveOnBitboards(Bitboards* bitboards, Move* move, Piece movingPiece);
 
 
 // inline utility functions 
 
-inline void setBitOnBitboard(Bitboard *b, Square s);
-inline void clearBitOnBitboard(Bitboard *b, Square s);
+inline void setBitOnBitboard(Bitboard *b, Square s)
+{
+    const Bitboard mask = 1UL << s;
 
-inline Bitboard* getBitboardForPiece(Bitboards* bitboards, Piece piece);
+    *b |= mask;
+}
+
+inline void clearBitOnBitboard(Bitboard *b, Square s)
+{
+    const Bitboard mask = 1UL << s;
+
+    *b &= ~mask;
+}

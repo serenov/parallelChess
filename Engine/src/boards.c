@@ -2,19 +2,16 @@
 #include "./includes/utils.h"
 #include "./includes/bitboards.h"
 #include "./includes/magicBoards.h"
+#include "./includes/utils.h"
 
 #include <stdbool.h>
 #include <stdlib.h>
 
 void initBoards(Boards *boards, char *fenString)
 {
-    PlainBoard plainBoard = boards->board;
-
-    Bitboards bitboards = boards->bitboards;
-
     initMagicBoards();
 
-    initPlainBoard(plainBoard);
+    initPlainBoard(boards -> board);
 
     initBitboards(&(boards->bitboards));
 
@@ -35,8 +32,14 @@ void initBoards(Boards *boards, char *fenString)
         }
         else
         {
-            putPieceOnSquare((Piece)*fenString, index, plainBoard);
-            setPieceOnBitboards(&(boards->bitboards), index, (Piece)*fenString);
+            putPieceOnSquare(boards -> board, parsePiece(*fenString), index);
+            setBitOnBitboard(
+                getBitboardForPiece(
+                    &(boards -> bitboards), 
+                    parsePiece(*fenString)
+                ), 
+                index
+            );
 
             index++;
         }
@@ -55,19 +58,19 @@ void playMoveOnBoards(Boards *boards, Move *move)
     playMoveOnBitboards(&(boards->bitboards), move, movingPiece);
 }
 
-void undoMoveOnBoards(Boards *boards, Move *move)
-{
-}
+// void undoMoveOnBoards(Boards *boards, Move *move)
+// {
+// }
 
-void generateLegalMoves(Boards *boards, Square from)
-{
-
-
-
-}
+// void generateLegalMoves(Boards *boards, Square from)
+// {
 
 
-void generatePseudoLegalMoves(Boards *boards, Square from) 
+
+// }
+
+
+Bitboard generatePseudoLegalMoves(Boards *boards, Square from) 
 {
     Piece selectedPiece = boards -> board[from];
 
@@ -80,7 +83,9 @@ void generatePseudoLegalMoves(Boards *boards, Square from)
             generateRookMoves(boards, from);
     case WHITE_PAWN:
     case BLACK_PAWN:
-        return;
+        return 
+            pawnAttackPattern(boards, from) |
+            pawnMoveGeneralPattern(boards, from);
     case WHITE_ROOK:
     case BLACK_ROOK:
         return generateRookMoves(boards, from);
@@ -112,7 +117,7 @@ inline static void removePieceOnSquare(PlainBoard board, Square square)
     board[square] = NULL_PIECE;
 }
 
-inline static void initPlainBoard(PlainBoard pb)
+inline void initPlainBoard(PlainBoard pb)
 {
     for (Square s = A1; s <= H8; s++)
     {

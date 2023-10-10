@@ -1,7 +1,7 @@
-#include "includes/bitboards.h"
-#include "includes/pieces.h"
-#include "includes/magicBoards.h"
-#include "includes/utils.h"
+#include "../includes/bitboards.h"
+#include "../includes/pieces.h"
+#include "../includes/magicBoards.h"
+#include "../includes/utils.h"
 
 void playMoveOnBitboards(Bitboards *bitboards, Move *move, Piece movingPiece)
 {
@@ -40,27 +40,15 @@ void playMoveOnBitboards(Bitboards *bitboards, Move *move, Piece movingPiece)
     clearBitOnBitboard(occupied45R, move -> to);
 }
 
-void undoMoveOnBitboards(Bitboards *bitboards, Move *move)
-{
-}
+// void undoMoveOnBitboards(Bitboards *bitboards, Move *move)
+// {
+// }
 
 // Inline utilities
 
 
 
-inline void setBitOnBitboard(Bitboard *b, Square s)
-{
-    const Bitboard mask = 1UL << s;
 
-    *b |= mask;
-}
-
-static void clearBitOnBitboard(Bitboard *b, Square s)
-{
-    const Bitboard mask = 1UL << s;
-
-    *b &= ~mask;
-}
 
 inline bool inBoundsPredicate(Square s)
 {

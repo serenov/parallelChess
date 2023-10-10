@@ -62,5 +62,3 @@ typedef struct
 // static inline Bitboard generateRookMoves(Boards* boards, Square square);
 // static inline Bitboard generateBishopMoves(Boards* boards, Square square);
 // static inline Bitboard generatePawnMoves(Boards* boards, Square square);
-
-inline Bitboard generateLegalMoves(Boards* boards, Square square);

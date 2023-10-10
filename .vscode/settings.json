@@ -8,6 +8,8 @@
         "moves.h": "c",
         "magicboards.h": "c",
         "utils.h": "c",
-        "MAGICBOARDS.H": "cpp"
-    }
+        "MAGICBOARDS.H": "cpp",
+        "stdint.h": "c"
+    },
+    "makefile.makeDirectory": "./Engine"
 }

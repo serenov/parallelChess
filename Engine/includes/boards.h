@@ -56,11 +56,12 @@ typedef struct
 
 
 void initBoards(Boards* boards, char* fenString);
+void initPlainBoard(PlainBoard pb);
 
 void playMoveOnBoards(Boards* boards, Move* move);
 void undoMoveOnBoards(Boards* boards, Move* move);
 
-void generateLegalMoves(Boards* boards, Square from);
+Bitboard generateLegalMoves(Boards* boards, Square from);
 
 // Inline utilities
 
@@ -101,16 +102,26 @@ inline Bitboard generateBishopMoves(Boards *boards, Square from)
     __attackRightDiagonal__[from][getRDiagonal(boards, from)];
 }
 
-inline Bitboard pawnAttackPattern(Boards* boards, Color c, Square from) 
+inline Bitboard pawnAttackPattern(Boards* boards, Square from) 
 {
-    return (c == WHITE)? 
-        ((1UL << (from + 7)) | (1UL << (from + 9))) & (boards -> bitboards.blackPieces):
-        ((1UL << (from - 7)) | (1UL << (from - 9))) & (boards -> bitboards.whitePieces);
+    const Bitboard enpassant = 1UL << (boards -> state.Enpassant);
+    return (boards -> state.colorToPlay == WHITE)? 
+        ((1UL << (from + 7)) | (1UL << (from + 9))) & (boards -> bitboards.blackPieces) & enpassant:
+        ((1UL << (from - 7)) | (1UL << (from - 9))) & (boards -> bitboards.whitePieces) & enpassant;
 }
 
 
-inline Bitboard pawnMoveGeneralPattern(Boards* boards, Color c, Square from)
+inline Bitboard pawnMoveGeneralPattern(Boards* boards, Square from)
 {
+    Color c = boards -> state.colorToPlay;
+
     Bitboard move = (c == WHITE)? 1UL << (from + 8): 1UL << (from - 8);
-    return move & ~(boards -> bitboards.occupiedBoard); 
+    move &= ~(boards -> bitboards.occupiedBoard);
+
+    if((from / 8) == 1 || (from / 8) == 6)
+    {
+        Bitboard initialMove = (c == WHITE)? 1UL << (from + 16): 1UL << (from - 16);
+        move |=  (move)? (initialMove & ~(boards -> bitboards.occupiedBoard)): 0;
+    }
+    return move; 
 }

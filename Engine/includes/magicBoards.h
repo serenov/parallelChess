@@ -2,14 +2,8 @@
 
 #include "bitboards.h"
 
-
-typedef unsigned char byte;
-
-typedef byte Statemask;
-
-
 // Magic Boards for rotated 45 degrees board
-const byte __occupied45R_shift__[64] = {
+const unsigned char __occupied45R_shift__[64] = {
     35, 27, 20, 14,  9,  5,  2,  0, 
     42, 34, 26, 19, 13,  8,  4,  1, 
     48, 41, 33, 25, 18, 12,  7,  3, 
@@ -20,7 +14,7 @@ const byte __occupied45R_shift__[64] = {
     63, 61, 58, 54, 49, 43, 36, 28
 };
 
-const byte __occupied45R_diagonalLength__[64] = {
+const unsigned char __occupied45R_diagonalLength__[64] = {
     8, 7, 6, 5, 4, 3, 2, 1, 
     7, 8, 7, 6, 5, 4, 3, 2, 
     6, 7, 8, 7, 6, 5, 4, 3, 
@@ -31,7 +25,7 @@ const byte __occupied45R_diagonalLength__[64] = {
     1, 2, 3, 4, 5, 6, 7, 8
 };
 
-const byte __occupied45R_skip__[64] = {
+const unsigned char __occupied45R_skip__[64] = {
     28, 21, 15, 10,  6,  3,  1,  0,
     36, 28, 21, 15, 10,  6,  3,  1,
     43, 36, 28, 21, 15, 10,  6,  3,
@@ -45,7 +39,7 @@ const byte __occupied45R_skip__[64] = {
 
 
 // Magic Boards for rotated 45 degrees board
-const byte __occupied45L_shift__[64] = {
+const unsigned char __occupied45L_shift__[64] = {
      0,  2,  5,  9, 14, 20, 27, 35, 
      1,  4,  8, 13, 19, 26, 34, 42, 
      3,  7, 12, 18, 25, 33, 41, 48, 
@@ -56,7 +50,7 @@ const byte __occupied45L_shift__[64] = {
     28, 36, 43, 49, 54, 58, 61, 63
 };
 
-const byte __occupied45L_diagonalLength__[64] = {
+const unsigned char __occupied45L_diagonalLength__[64] = {
     1, 2, 3, 4, 5, 6, 7, 8, 
     2, 3, 4, 5, 6, 7, 8, 7, 
     3, 4, 5, 6, 7, 8, 7, 6, 
@@ -67,7 +61,7 @@ const byte __occupied45L_diagonalLength__[64] = {
     8, 7, 6, 5, 4, 3, 2, 1
 };
 
-const byte __occupied45L_skip__[64] = {
+const unsigned char __occupied45L_skip__[64] = {
      0,  1,  3,  6, 10, 15, 21, 28, 
      1,  3,  6, 10, 15, 21, 28, 36, 
      3,  6, 10, 15, 21, 28, 36, 43, 
@@ -81,7 +75,7 @@ const byte __occupied45L_skip__[64] = {
 
 // magic Board for rotated 90 Degrees Board
 
-const byte __occupied90L_shift__[64] = {
+const unsigned char __occupied90L_shift__[64] = {
     7, 15, 23, 31, 39, 47, 55, 63, 
     6, 14, 22, 30, 38, 46, 54, 62, 
     5, 13, 21, 29, 37, 45, 53, 61, 
@@ -92,7 +86,7 @@ const byte __occupied90L_shift__[64] = {
     0,  8, 16, 24, 32, 40, 48, 56
 };
 
-const byte __occupied90L_skip__[64] = {
+const unsigned char __occupied90L_skip__[64] = {
     0, 8, 16, 24, 32, 40, 48, 56,
     0, 8, 16, 24, 32, 40, 48, 56,
     0, 8, 16, 24, 32, 40, 48, 56,
@@ -105,7 +99,7 @@ const byte __occupied90L_skip__[64] = {
 
 // magic board for 0 Degrees Board
 
-const byte __occupied_skip__[64] = {
+const unsigned char __occupied_skip__[64] = {
      0,  0,  0,  0,  0,  0,  0,  0,
      8,  8,  8,  8,  8,  8,  8,  8,
     16, 16, 16, 16, 16, 16, 16, 16,
@@ -134,18 +128,13 @@ Bitboard __files__[8];
 // Initializationss
 
 
-static inline void initKnightAttack();
-static inline void initKingAttack();
-static inline void initAttackRank();
-static inline void initAttackFile();
-static inline void initAttackRightDiagonal(); 
-static inline void initAttackLeftDiagonal();
+// static inline void initKnightAttack();
+// static inline void initKingAttack();
+// static inline void initAttackRank();
+// static inline void initAttackFile();
+// static inline void initAttackRightDiagonal(); 
+// static inline void initAttackLeftDiagonal();
 
-static inline void initRanksAndFiles();
-
-inline int getRankState(Boards* boards, Square square);
-inline int getFileState(Boards* boards, Square square);
-inline int getRDiagonal(Boards* boards, Square square);
-inline int getLDiagonal(Boards* boards, Square square);
+// static inline void initRanksAndFiles();
 
 void initMagicBoards();
