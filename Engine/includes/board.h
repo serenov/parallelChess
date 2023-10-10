@@ -1,3 +1,4 @@
+#pragma once
 #include "core.types.h"
 
 inline static void putPieceOnSquare(PlainBoard board, Piece piece, Square square);
