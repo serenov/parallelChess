@@ -10,7 +10,18 @@
         "utils.h": "c",
         "MAGICBOARDS.H": "cpp",
         "stdint.h": "c",
-        "squares.h": "c"
+        "squares.h": "c",
+        "bitboards.types.h": "c",
+        "pieces.types.h": "c",
+        "core.types.h": "c"
     },
-    "makefile.makeDirectory": "./Engine"
+    "makefile.makeDirectory": "./Engine",
+    "makefile.makefilePath": "./Engine",
+    "makefile.launchConfigurations": [
+        {
+            "cwd": "/home/bhanu/parallelChess/Engine",
+            "binaryPath": "/home/bhanu/parallelChess/Engine/a.exe",
+            "binaryArgs": []
+        }
+    ]
 }

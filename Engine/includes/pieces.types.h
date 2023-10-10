@@ -1,8 +1,5 @@
 #pragma once
 
-#include <stdbool.h>
-
-
 typedef enum {
 
     BLACK,
@@ -29,15 +26,3 @@ typedef enum {
     NULL_PIECE = ' '
 
 } Piece;
-
-
-
-inline Color getColorByPiece(Piece p){
-
-    if(p == NULL_PIECE) return NO_COLOR;
-
-    if(p > WHITE_PAWN) return BLACK;
-
-    return WHITE;
-}
-

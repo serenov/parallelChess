@@ -1,58 +1,11 @@
 #pragma once
 
-#include <stdbool.h>
-
-#include "./bitboards.h"
-#include "./pieces.h"
-#include "./moves.h"
-#include "./squares.h"
-#include "./board.h"
-#include "./magicBoards.h"
 #define DEFAULT_FEN "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1"
 
-#define MAX_NUMBER_OF_MOVES 1000
-
-typedef Square* SquaresList;
-
-
-typedef enum 
-
-{
-    RUNNING,
-    STALEMATE,
-    CHEKCMATE,
-    BLACK_RESIGN,
-    WHITE_RESIGN,
-    DRAW_BY_REP,
-    DRAW_BY_50
-
-} GameStatus;
+#include <stdbool.h>
+#include "core.types.h"
 
 
-typedef struct 
-{
-    bool canCastleRight[2];
-    bool canCastleLeft[2];
-
-    Square Enpassant;
-
-    GameStatus status;
-
-    Color colorToPlay;
-
-    MoveInfo movesHistory[MAX_NUMBER_OF_MOVES];
-
-} BoardState;
-
-
-typedef struct 
-{
-
-    PlainBoard board;
-    Bitboards bitboards;
-    BoardState state;
-
-} Boards;
 
 
 void initBoards(Boards *boards, char *fenString);

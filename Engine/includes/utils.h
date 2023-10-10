@@ -80,3 +80,12 @@ inline Piece parsePiece(char c)
         return NULL_PIECE;
     }
 }
+
+inline Color getColorByPiece(Piece p){
+
+    if(p == NULL_PIECE) return NO_COLOR;
+
+    if(p > WHITE_PAWN) return BLACK;
+
+    return WHITE;
+}
