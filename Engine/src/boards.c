@@ -1,11 +1,4 @@
 #include "../includes/boards.h"
-#include "../includes/utils.h"
-#include "../includes/bitboards.h"
-#include "../includes/magicBoards.h"
-#include "../includes/utils.h"
-
-#include <stdbool.h>
-#include <stdlib.h>
 
 void initBoards(Boards *boards, char *fenString)
 {

@@ -1,6 +1,4 @@
 #include "../includes/bitboards.h"
-#include "../includes/pieces.h"
-#include "../includes/magicBoards.h"
 #include "../includes/utils.h"
 
 inline void initBitboards(Bitboards* bitboard) 

@@ -1,7 +1,5 @@
 #pragma once
-#include "./pieces.h"
-#include "./bitboards.h"
-#include "./squares.h"
+#include "core.types.h"
 
 inline Bitboard* getBitboardForPiece(Bitboards *bitboards, Piece piece)
 {

@@ -1,7 +1,6 @@
-#include <stdbool.h>
-#include <stdio.h>
+#include "../includes/core.types.h"
 #include "../includes/boards.h"
-#include "../includes/board.h"
+#include<stdio.h>
 
 
 void displayBoard(PlainBoard board, bool rotated) {

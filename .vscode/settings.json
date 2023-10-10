@@ -13,7 +13,8 @@
         "squares.h": "c",
         "bitboards.types.h": "c",
         "pieces.types.h": "c",
-        "core.types.h": "c"
+        "core.types.h": "c",
+        "magicboards.types.h": "c"
     },
     "makefile.makeDirectory": "./Engine",
     "makefile.makefilePath": "./Engine",

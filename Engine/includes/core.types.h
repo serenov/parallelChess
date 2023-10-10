@@ -2,10 +2,12 @@
 
 #define MAX_NUMBER_OF_MOVES 1000
 
+#include <stdbool.h>
 #include "./squares.types.h"
 #include "./pieces.types.h"
 #include "./bitboards.types.h"
 #include "./moves.types.h"
+#include "./magicBoards.types.h"
 
 
 typedef Piece PlainBoard[64];
