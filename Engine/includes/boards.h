@@ -100,3 +100,17 @@ inline Bitboard generateBishopMoves(Boards *boards, Square from)
     __attackLeftDiagonal__[from][getLDiagonal(boards, from)] |
     __attackRightDiagonal__[from][getRDiagonal(boards, from)];
 }
+
+inline Bitboard pawnAttackPattern(Boards* boards, Color c, Square from) 
+{
+    return (c == WHITE)? 
+        ((1UL << (from + 7)) | (1UL << (from + 9))) & (boards -> bitboards.blackPieces):
+        ((1UL << (from - 7)) | (1UL << (from - 9))) & (boards -> bitboards.whitePieces);
+}
+
+
+inline Bitboard pawnMoveGeneralPattern(Boards* boards, Color c, Square from)
+{
+    Bitboard move = (c == WHITE)? 1UL << (from + 8): 1UL << (from - 8);
+    return move & ~(boards -> bitboards.occupiedBoard); 
+}
