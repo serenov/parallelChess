@@ -23,14 +23,14 @@ inline void initBitboards(Bitboards* bitboard)
     bitboard -> occupiedRotated45RBoard = 0;
 }
 
-inline void setBitOnBitboard(Bitboard *b, Square s)
+void setBitOnBitboard(Bitboard *b, Square s)
 {
     const Bitboard mask = 1UL << s;
 
     *b |= mask;
 }
 
-inline void clearBitOnBitboard(Bitboard *b, Square s)
+void clearBitOnBitboard(Bitboard *b, Square s)
 {
     const Bitboard mask = 1UL << s;
 
@@ -39,7 +39,7 @@ inline void clearBitOnBitboard(Bitboard *b, Square s)
 
 void playMoveOnBitboards(Bitboards *bitboards, Move *move, Piece movingPiece)
 {
-    Bitboard* targetBitboard = getBitboardForPiece(bitboards, movingPiece);
+    Bitboard *targetBitboard = getBitboardForPiece(bitboards, movingPiece);
 
     setBitOnBitboard(targetBitboard, move -> from);
     clearBitOnBitboard(targetBitboard, move -> to);
@@ -91,4 +91,3 @@ inline bool inBoundsPredicate(Square s)
 
     return false;
 }
-

@@ -1,4 +1,3 @@
-#include "../includes/core.types.h"
 #include "../includes/boards.h"
 #include<stdio.h>
 

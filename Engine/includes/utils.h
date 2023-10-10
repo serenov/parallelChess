@@ -1,7 +1,7 @@
 #pragma once
-#include "core.types.h"
+#include "./structs/core.types.h"
 
-inline Bitboard* getBitboardForPiece(Bitboards *bitboards, Piece piece)
+Bitboard* getBitboardForPiece(Bitboards *bitboards, Piece piece)
 {
     switch (piece)
     {
@@ -37,7 +37,7 @@ inline Bitboard* getBitboardForPiece(Bitboards *bitboards, Piece piece)
     return 0;
 }
 
-inline Square firstBit(Bitboard *board)
+Square firstBit(Bitboard *board)
 {
     Square square = __builtin_ctzll(*board);
 
@@ -47,7 +47,7 @@ inline Square firstBit(Bitboard *board)
 }
 
 
-inline Piece parsePiece(char c) 
+Piece parsePiece(char c) 
 {
     switch(c) {
     case 'K':
@@ -79,7 +79,7 @@ inline Piece parsePiece(char c)
     }
 }
 
-inline Color getColorByPiece(Piece p){
+Color getColorByPiece(Piece p){
 
     if(p == NULL_PIECE) return NO_COLOR;
 

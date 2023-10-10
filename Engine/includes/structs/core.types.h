@@ -3,6 +3,7 @@
 #define MAX_NUMBER_OF_MOVES 1000
 
 #include <stdbool.h>
+#include <stdlib.h>
 #include "./squares.types.h"
 #include "./pieces.types.h"
 #include "./bitboards.types.h"

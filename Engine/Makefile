@@ -1,33 +1,26 @@
-# Define the compiler for Mingw
 CC = gcc
+CFLAGS = -Wall
 
-# Define compilation flags
-CFLAGS = -Wall -Werror
+SRCDIR = ./src
+OBJDIR = ./src
+BINDIR = .
 
-# Define source files and object files
+# List of source files
+SRCS = $(wildcard $(SRCDIR)/*.c)
+# Generate a list of object files from source files
+OBJS = $(patsubst $(SRCDIR)/%.c,$(OBJDIR)/%.o,$(SRCS))
+# Name of the final executable
+TARGET = $(BINDIR)/my_program
 
-SRC_DIR = src
+all: $(TARGET)
 
-SOURCES = $(wildcard $(SRC_DIR)/*.c)
-OBJECTS = $(SOURCES:.c=.o)
-
-# Define the output executable
-EXECUTABLE = a.exe
-
-# Default target
-all: $(EXECUTABLE)
-
-# Rule to build the executable from object files
-$(EXECUTABLE): $(OBJECTS)
+$(TARGET): $(OBJS)
 	$(CC) $(CFLAGS) -o $@ $^
 
-# Rule to compile source files into object files
-%.o: %.c
-	$(CC) $(CFLAGS) -c $< -o $@
+$(OBJDIR)/%.o: $(SRCDIR)/%.c
+	$(CC) $(CFLAGS) -c -o $@ $<
 
-# Clean up object files and the executable
 clean:
-	rm -f $(OBJECTS) $(EXECUTABLE)
+	rm -f $(OBJS) $(TARGET)
 
-# Phony target for cleaning
-.PHONY: clean
+.PHONY: all clean
