@@ -63,15 +63,15 @@ void playMoveOnBitboards(Bitboards *bitboards, Move *move, Piece movingPiece)
     fromTrans = __occupied45L_shift__[move -> to];
 
     Bitboard* occupied45L = &(bitboards -> occupiedRotated45LBoard);
-    setBitOnBitboard(occupied45L, move -> from);
-    clearBitOnBitboard(occupied45L, move -> to);
+    setBitOnBitboard(occupied45L, fromTrans);
+    clearBitOnBitboard(occupied45L, toTrans);
 
     toTrans = __occupied45R_shift__[move -> from];
     fromTrans = __occupied45R_shift__[move -> to];
 
     Bitboard* occupied45R = &(bitboards -> occupiedRotated45RBoard);
-    setBitOnBitboard(occupied45R, move -> from);
-    clearBitOnBitboard(occupied45R, move -> to);
+    setBitOnBitboard(occupied45R, fromTrans);
+    clearBitOnBitboard(occupied45R, toTrans);
 }
 
 // void undoMoveOnBitboards(Bitboards *bitboards, Move *move)
